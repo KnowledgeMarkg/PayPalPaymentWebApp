@@ -1,0 +1,55 @@
+﻿@model PayPalPaymentWebApp.Models.ContactUsModel
+
+@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<div class="container mt-5">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <h2 class="fw-bold">Get In Touch With Us</h2>
+            <p>Learn more about Sutton Coldfield Hindu Association</p>
+            <p>
+                Mail Us at <a href="mailto:sha.suttonhindu@gmail.com" class="text-decoration-none text-orange">sha.suttonhindu@gmail.com</a>
+                to discuss any inquiry.
+            </p>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card p-4">
+                <h3 class="fw-bold">Any Questions?</h3>
+                <p>Leave Us a Message Here:</p>
+
+                <form asp-action="SubmitInquiry" method="post">
+                    <div class="row">
+                        <div class="col-12 col-md-6 mb-3">
+                            <label for="Name" class="form-label">Name <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" asp-for="Name" id="Name" placeholder="Name" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-12 col-md-6 mb-3">
+                            <label for="Email" class="form-label">Email <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control" asp-for="Email" id="Email" placeholder="Email" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Message" class="form-label">Message <span class="text-danger">*</span></label>
+                        <textarea class="form-control" asp-for="Message" id="Message" placeholder="Message" rows="5"></textarea>
+                        <span asp-validation-for="Message" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-warning text-white fw-bold">Submit Inquiry</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

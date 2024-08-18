@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SHA</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/registration.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <style>
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #f5f5f5;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+            .testimonials h2 {
+                font-weight: bold;
+                margin-bottom: 30px;
+            }
+
+            .testimonials p {
+                font-style: italic;
+                font-size: 1.2rem;
+                margin-bottom: 20px;
+                color: #555;
+            }
+
+            .testimonials .quote {
+                margin-top: 20px;
+                color: #333;
+            }
+
+            .testimonials .quote-author {
+                font-weight: bold;
+                margin-top: 15px;
+            }
+
+            .testimonials .arrow {
+                font-size: 2rem;
+                color: #777;
+                cursor: pointer;
+                transition: color 0.3s ease;
+            }
+
+                .testimonials .arrow:hover {
+                    color: #333;
+                }
+
+        /* Footer Section */
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 40px 0;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+            .footer-logo img {
+                width: 70px;
+                height: auto;
+                margin-right: 15px;
+            }
+
+            .footer-logo h4 {
+                font-weight: bold;
+            }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+            .footer-links li {
+                margin-bottom: 10px;
+            }
+
+            .footer-links a {
+                color: #fff;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+                .footer-links a:hover {
+                    color: #f39c12;
+                }
+
+        .footer-contact p {
+            margin-bottom: 0;
+        }
+
+        .footer-contact a {
+            color: #f39c12;
+            text-decoration: none;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+            .social-icons a {
+                color: #fff;
+                font-size: 1.5rem;
+                margin-right: 15px;
+                transition: color 0.3s ease;
+            }
+
+                .social-icons a:hover {
+                    color: #f39c12;
+                }
+
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+
+        .about-section img {
+            max-width: 70%;
+            height: auto;
+            margin-bottom: 20px;
+            border: 5px solid #ccc; /* Adds a 5px solid border with a light gray color */
+            border-radius: 10px; /* Optional: Adds rounded corners to the border */
+        }
+
+        .about-section {
+            padding: 50px 0;
+        }
+
+            .about-section img {
+                max-width: 100%;
+                height: auto;
+                margin-bottom: 20px;
+            }
+
+            .about-section p {
+                font-size: 1.2em;
+                margin-bottom: 30px; /* Adds a 20px gap between the paragraph and the button */
+            }
+
+
+            .about-section p {
+                font-size: 1.2em;
+            }
+
+            .about-section .btn-read-more {
+                background-color: #f39c12;
+                color: white;
+                padding: 10px 20px;
+                text-decoration: none;
+                border-radius: 5px;
+                font-weight: bold;
+            }
+
+        .footer-logo .logo-img {
+            width: 140px; /* Adjust width as needed */
+            height: auto; /* Maintains aspect ratio */
+            margin-right: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="/images/logo.png" alt="Organization Logo" style="width: 150px; height: auto;" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("AboutUs", "Home")">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("ContactUs", "Home")">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="hero-content text-center text-white flex justify-content-center">
+            <h3>Get Ready for a Spectacular Night!</h3>
+            <p>Join us for a magical evening of dance, music, and joy as we celebrate the spirit of Navratri!</p>
+            <p>📅 Date: 28th September</p>
+            <p>📍 Venue: Wyndley Leisure Centre</p>
+            <p>🎵 Featuring: A Live Band</p>
+            <p>🍴 Delicious Food Stalls!</p>
+            <div class="remaining-tickets text-center">
+                <h2><strong>Tickets Left:</strong> @ViewData["RemainingTickets"]</h2>
+            </div>
+            <div class="text-center cta-button mt-4">
+                <a href="@Url.Action("Register", "Account")#registration-section" class="btn btn-primary btn-register">Buy Tickets</a>
+            </div>
+
+        </div>
+    </header>
+
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer-logo">
+                        <img src="~/images/logo.png" alt="Logo" class="logo-img">
+                    </div>
+
+                    <p>
+                        Our Hindu organisation is dedicated to sharing the rich and diverse heritage of Hinduism with the local community in Sutton Coldfield,
+                        located in the United Kingdom.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/people/Sutton-Coldfield-Hindu-Association/100086682159344/?paipv=0&eav=AfbkQgtkV3vtLZNBuiUh9eRCTr3BhRLD8vzAeQhXjxLLzlk6aMGOIpykF42P036vVnw&_rdr"><i class="ri-facebook-fill"></i></a>
+                        <a href="mailto:sha.suttonhindu@gmail.com"><i class="ri-mail-fill"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Useful Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                        <li><a href="@Url.Action("AboutUs", "Home")">About Us</a></li>
+                        <li><a href="@Url.Action("ContactUs", "Home")">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Get In Touch With Us</h5>
+                    <p>
+                        Learn more about Sutton Coldfield Hindu Association. Mail us at <a href="mailto:sha.suttonhindu@gmail.com">sha.suttonhindu@gmail.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; Copyright 2024. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

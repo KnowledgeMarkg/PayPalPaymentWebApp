@@ -1,0 +1,90 @@
+﻿@model PayPalPaymentWebApp.Models.User
+
+<div class="container mt-5" id="registration-section">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card p-4">
+                <div class="card-header text-center">
+                    <img src="~/images/logo.png" alt="Logo" style="width: 60px;">
+                    <h3 class="mb-0">Registration Form</h3>
+                </div>
+                <div class="card-body">
+                    <!-- Updated heading -->
+                    <h4 class="text-primary">Primary Ticket Holder Information</h4>
+                    <hr />
+                    <form asp-action="Register" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row">
+                            <div class="col-12 col-md-4 mb-3">
+                                <label for="Title" class="form-label">Title</label>
+                                <select class="form-select" asp-for="Title" id="Title">
+                                    <option>Select</option>
+                                    <option>Mr</option>
+                                    <option>Mrs</option>
+                                    <option>Miss</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-4 mb-3">
+                                <label for="FirstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" asp-for="FirstName" id="FirstName" placeholder="Enter your first name" />
+                            </div>
+                            <div class="col-12 col-md-4 mb-3">
+                                <label for="LastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" asp-for="LastName" id="LastName" placeholder="Enter your last name" />
+                            </div>
+                            <div class="col-12 col-md-4 mb-3">
+                                <label for="Age" class="form-label">Age</label>
+                                <input type="number" class="form-control" asp-for="Age" id="Age" placeholder="Enter your age" />
+                            </div>
+                            <div class="col-12 col-md-4 mb-3">
+                                <label for="PhoneNumber" class="form-label">Phone</label>
+                                <input type="text" class="form-control" asp-for="PhoneNumber" id="PhoneNumber" placeholder="Enter your phone number" />
+                            </div>
+                            <div class="col-12 col-md-4 mb-3">
+                                <label for="Gender" class="form-label">Gender</label>
+                                <select class="form-select" asp-for="Gender" id="Gender">
+                                    <option>Select Gender</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-4 mb-3">
+                                <label for="Email" class="form-label">Email</label>
+                                <input type="email" class="form-control" asp-for="Email" id="Email" placeholder="Enter your email" />
+                            </div>
+                            <!-- Removed Password and Confirm Password fields -->
+                            <div class="col-12 col-md-4 mb-3">
+                                <label for="Address1" class="form-label">Address 1</label>
+                                <input type="text" class="form-control" asp-for="Address1" id="Address1" placeholder="Enter your address" />
+                            </div>
+                            <div class="col-12 col-md-4 mb-3">
+                                <label for="Address2" class="form-label">Address 2</label>
+                                <input type="text" class="form-control" asp-for="Address2" id="Address2" placeholder="Enter your address" />
+                            </div>
+                            <div class="col-12 col-md-4 mb-3">
+                                <label for="City" class="form-label">City</label>
+                                <input type="text" class="form-control" asp-for="City" id="City" placeholder="Enter your city" />
+                            </div>
+                            <div class="col-12 col-md-4 mb-3">
+                                <label for="PostCode" class="form-label">Post Code</label>
+                                <input type="text" class="form-control" asp-for="PostCode" id="PostCode" placeholder="Enter your post code" />
+                            </div>
+                            <!-- Removed Country of Birth field -->
+                            <div class="col-12 col-md-4 mb-3">
+                                <label for="Tickets" class="form-label">Number of Tickets Required</label>
+                                <input type="number" class="form-control" asp-for="NumberOfTickets" id="Tickets" placeholder="Enter number of tickets" />
+                            </div>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
